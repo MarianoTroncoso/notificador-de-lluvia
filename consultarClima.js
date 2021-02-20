@@ -18,27 +18,31 @@ const obtenerProbabilidades = async () => {
   await page.click('#pronos_dia1')
 
   // guardo las probabilidades de lluvia
-  const probabilidades = await page.evaluate(()=>{
-    const tmp = {};
-    tmp.madrugada = document.querySelector('#pronos_rain_prob_earlymorning1').innerText;
-    tmp.mañana = document.querySelector('#pronos_rain_prob_morning1').innerText;
-    tmp.tarde = document.querySelector('#pronos_rain_prob_afternoon1').innerText;
-    tmp.noche = document.querySelector('#pronos_rain_prob_night1').innerText;
-    return tmp
-  });
+  // const probabilidades = await page.evaluate(()=>{
+  //   const tmp = {};
+  //   tmp.madrugada = document.querySelector('#pronos_rain_prob_earlymorning1').innerText;
+  //   tmp.mañana = document.querySelector('#pronos_rain_prob_morning1').innerText;
+  //   tmp.tarde = document.querySelector('#pronos_rain_prob_afternoon1').innerText;
+  //   tmp.noche = document.querySelector('#pronos_rain_prob_night1').innerText;
+  //   return tmp
+  // });
 
+  // fake 
+  const probabilidades = {
+    madrugada: '40 - 70%',
+    mañana: '40 - 70%',
+    tarde: '40 - 70%',
+    noche: '40 - 70%'
+  }
+  
   let lluvia = [];
   const probabilidadesBajas = ['0%', '0 - 10%','10 - 40%']
   for(const p in probabilidades){
     if(!probabilidadesBajas.includes(probabilidades[p])){
-      lluvia.push(probabilidades[p])
+      // console.log('se viene el agua a la ', p)
+      lluvia.push([p, probabilidades[p]])
     }
   }
-  // if(lluvia.length == 0){
-  //   console.log('No hay probabilidades de lluvia para mañana')
-  // } else{
-  //   console.log('Hay probabilidades de lluvia para mañana')
-  // }
 
   await browser.close();
 
