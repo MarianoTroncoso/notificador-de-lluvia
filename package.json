@@ -1,0 +1,23 @@
+{
+  "name": "notificador-de-lluvia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarianoTroncoso/notificador-de-lluvia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarianoTroncoso/notificador-de-lluvia/issues"
+  },
+  "homepage": "https://github.com/MarianoTroncoso/notificador-de-lluvia#readme",
+  "dependencies": {
+    "node-cron": "^2.0.3"
+  }
+}
