@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const obtenerProbabilidades = async () => {
 
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto('https://www.smn.gob.ar/');
 
@@ -34,11 +34,11 @@ const obtenerProbabilidades = async () => {
       lluvia.push(probabilidades[p])
     }
   }
-  if(lluvia.length == 0){
-    console.log('No hay probabilidades de lluvia para mañana')
-  } else{
-    console.log('Hay probabilidades de lluvia para mañana')
-  }
+  // if(lluvia.length == 0){
+  //   console.log('No hay probabilidades de lluvia para mañana')
+  // } else{
+  //   console.log('Hay probabilidades de lluvia para mañana')
+  // }
 
   await browser.close();
 
