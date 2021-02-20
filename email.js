@@ -17,14 +17,14 @@ const enviarEmail = (probs) => {
   let transporter = nodemailer.createTransport({
     service: 'outlook',
     auth: {
-      user: process.env.EMAIL,
+      user: process.env.EMAILFROM,
       pass: process.env.PASSWORD
     }
   });
 
   let mailOptions = {
-    from: process.env.EMAIL,
-    to: 'petotronco@gmail.com',
+    from: process.env.EMAILFROM,
+    to: process.env.EMAILTO,
     subject: 'HAY PROBABILIDADES DE LLUVIA PARA MAÑANA',
     text: mensaje
   };
