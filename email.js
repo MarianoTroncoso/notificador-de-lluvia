@@ -13,8 +13,6 @@ const enviarEmail = (probs) => {
     mensaje = mensaje + `${p[0]}: ${p[1]}\n`
   });
 
-  console.log(mensaje)
-
   // transporter
   let transporter = nodemailer.createTransport({
     service: 'outlook',
@@ -28,16 +26,16 @@ const enviarEmail = (probs) => {
     from: process.env.EMAIL,
     to: 'petotronco@gmail.com',
     subject: 'HAY PROBABILIDADES DE LLUVIA PARA MAÑANA',
-    text: ''
+    text: mensaje
   };
 
-  // transporter.sendMail(mailOptions, (err, data) => {
-  //   if (err) {
-  //     console.log(err)
-  //   } else {
-  //     console.log('email sent')
-  //   }
-  // })
+  transporter.sendMail(mailOptions, (err, data) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('email sent')
+    }
+  })
 }
 
 exports.enviarEmail = enviarEmail

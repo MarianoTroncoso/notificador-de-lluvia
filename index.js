@@ -8,12 +8,10 @@ cron.schedule('* * * * *', () => {
   obtenerProbabilidades().then( res => {
     
     if(res.length != 0){
-      console.log('Hay probabilidades de lluvia para mañana')
+      // console.log('Hay probabilidades de lluvia para mañana')
       enviarEmail(res)
     } else{
-      console.log('No hay probabilidades de lluvia para mañana')
-      // envio email de todo esta bien
-      // enviarEmail()
+      // console.log('No hay probabilidades de lluvia para mañana')
     }
   })
 })
