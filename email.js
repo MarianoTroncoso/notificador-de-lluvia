@@ -1,8 +1,8 @@
+const nodemailer = require('nodemailer');
 require('dotenv').config()
 
 const enviarEmail = (probs) => {
-  const nodemailer = require('nodemailer');
-
+  
   // seteo la fecha de mañana 
   let fecha = new Date()
   fecha.setDate(fecha.getDate() + 1)
@@ -16,14 +16,14 @@ const enviarEmail = (probs) => {
 
   // transporter
   let transporter = nodemailer.createTransport({
-    service: 'outlook',
+    service: 'gmail',
     auth: {
       user: process.env.EMAILFROM,
       pass: process.env.PASSWORD
     },
-    tls: {
-      rejectUnauthorized: false
-  }
+  //   tls: {
+  //     rejectUnauthorized: false
+  // }
   });
 
   let mailOptions = {
