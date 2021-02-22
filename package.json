@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MarianoTroncoso/notificador-de-lluvia#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.18",
     "puppeteer": "^7.1.0"

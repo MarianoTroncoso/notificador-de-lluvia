@@ -1,7 +1,10 @@
-const cron = require('node-cron')
+const cron = require('node-cron');
+const express = require('express');
 
 const { obtenerProbabilidades } = require('./consultarClima')
 const { enviarEmail } = require('./email')
+
+app = express();
 
 // 0 20 * * * <-- todos los días a las 20 hs 
 // cron.schedule('0 20 * * *', () => {
@@ -16,3 +19,5 @@ cron.schedule('* * * * *', () => {
     }
   })
 })
+
+app.listen(process.env.PORT);
