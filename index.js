@@ -6,6 +6,7 @@ const { enviarEmail } = require('./email')
 
 app = express();
 
+// CAMBIAR
 // 0 20 * * * <-- todos los días a las 20 hs 
 // cron.schedule('0 20 * * *', () => {
 cron.schedule('* * * * *', () => {
