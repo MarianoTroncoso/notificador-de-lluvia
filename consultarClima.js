@@ -2,7 +2,8 @@ const puppeteer = require('puppeteer');
 
 const obtenerProbabilidades = async () => {
 
-  const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox']});
+  try {
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox']});
   const page = await browser.newPage();
   await page.goto('https://www.smn.gob.ar/');
 
@@ -46,6 +47,10 @@ const obtenerProbabilidades = async () => {
   await browser.close();
 
   return lluvia;
+  } catch (error) {
+    console.log(error)
+  }
+  
 }
 
 exports.obtenerProbabilidades = obtenerProbabilidades
