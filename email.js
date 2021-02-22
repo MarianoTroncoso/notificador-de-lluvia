@@ -17,6 +17,7 @@ const enviarEmail = (probs) => {
   // transporter
   let transporter = nodemailer.createTransport({
     service: 'outlook',
+    secure: true,
     auth: {
       user: process.env.EMAILFROM,
       pass: process.env.PASSWORD
