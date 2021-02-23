@@ -19,22 +19,22 @@ const obtenerProbabilidades = async () => {
   await page.click('#pronos_dia1')
 
   // guardo las probabilidades de lluvia
-  // const probabilidades = await page.evaluate(()=>{
-  //   const tmp = {};
-  //   tmp.madrugada = document.querySelector('#pronos_rain_prob_earlymorning1').innerText;
-  //   tmp.mañana = document.querySelector('#pronos_rain_prob_morning1').innerText;
-  //   tmp.tarde = document.querySelector('#pronos_rain_prob_afternoon1').innerText;
-  //   tmp.noche = document.querySelector('#pronos_rain_prob_night1').innerText;
-  //   return tmp
-  // });
+  const probabilidades = await page.evaluate(()=>{
+    const tmp = {};
+    tmp.madrugada = document.querySelector('#pronos_rain_prob_earlymorning1').innerText;
+    tmp.mañana = document.querySelector('#pronos_rain_prob_morning1').innerText;
+    tmp.tarde = document.querySelector('#pronos_rain_prob_afternoon1').innerText;
+    tmp.noche = document.querySelector('#pronos_rain_prob_night1').innerText;
+    return tmp
+  });
 
   // fake 
-  const probabilidades = {
-    madrugada: '40 - 70%',
-    mañana: '40 - 70%',
-    tarde: '40 - 70%',
-    noche: '40 - 70%'
-  }
+  // const probabilidades = {
+  //   madrugada: '40 - 70%',
+  //   mañana: '40 - 70%',
+  //   tarde: '40 - 70%',
+  //   noche: '40 - 70%'
+  // }
   
   let lluvia = [];
   const probabilidadesBajas = ['0%', '0 - 10%','10 - 40%']
