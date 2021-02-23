@@ -2,11 +2,6 @@ const nodemailer = require('nodemailer');
 const { google } = require('googleapis')
 require('dotenv').config()
 
-const CLIENT_ID = process.env.CLIENT_ID
-const CLIENT_SECRET = process.env.CLIENT_SECRET
-const REDIRECT_URI = process.env.REDIRECT_URI
-const REFRESH_TOKEN = process.env.REFRESH_TOKEN
-
 const enviarEmail = async (probs) => {
 
   // seteo la fecha de mañana 
@@ -19,6 +14,11 @@ const enviarEmail = async (probs) => {
   probs.forEach(p => {
     mensaje = mensaje + `${p[0]}: ${p[1]}\n`
   });
+
+  const CLIENT_ID = process.env.CLIENT_ID
+  const CLIENT_SECRET = process.env.CLIENT_SECRET
+  const REDIRECT_URI = process.env.REDIRECT_URI
+  const REFRESH_TOKEN = process.env.REFRESH_TOKEN
 
   // oAuth2
   const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
